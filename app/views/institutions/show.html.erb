@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @institution.abbreviation %>
+</p>
+
+<p>
+  <strong>Short name:</strong>
+  <%= @institution.short_name %>
+</p>
+
+<p>
+  <strong>Long name:</strong>
+  <%= @institution.long_name %>
+</p>
+
+<p>
+  <strong>Landing page:</strong>
+  <%= @institution.landing_page %>
+</p>
+
+<p>
+  <strong>External id strip:</strong>
+  <%= @institution.external_id_strip %>
+</p>
+
+<p>
+  <strong>Campus:</strong>
+  <%= @institution.campus %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @institution.url %>
+</p>
+
+<p>
+  <strong>Url text:</strong>
+  <%= @institution.url_text %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @institution.logo %>
+</p>
+
+<%= link_to 'Edit', edit_institution_path(@institution) %> |
+<%= link_to 'Back', institutions_path %>
