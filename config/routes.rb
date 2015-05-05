@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+
+  root to: "resources#index"
   resources :institutions
 
   resources :users
 
   resources :resources
+
+  mount Datacite::Engine, at: "/datacite"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
