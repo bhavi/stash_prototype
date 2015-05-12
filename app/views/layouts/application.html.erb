@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container">
+    <%= image_tag("stash_logo.png", alt: "Responsive image") %>
+    <div class="btn pull-right" >
+      <a href="#">LogIn</a>
+    </div>
+  </div>
+  <%= render 'layouts/header' %>
+  <div class="container">
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </div>
 </body>
 </html>
