@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  root to: "static_pages#home"
 
-  root to: "resources#index"
+  get 'static_pages/home'
+
   resources :institutions
 
   resources :users

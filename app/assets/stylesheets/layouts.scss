@@ -1,0 +1,11 @@
+.footer {
+  &.container {
+    border-top: 1px solid $color_nobel_approx;
+    margin-top: 15px;
+    padding: 15px 0;
+    position: relative;
+  }
+  .row-fluid {
+    margin: 0 35px;
+  }
+}
