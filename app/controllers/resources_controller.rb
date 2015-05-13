@@ -29,7 +29,7 @@ class ResourcesController < ApplicationController
     respond_to do |format|
       if @resource.save
         format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
-        format.json { render :show, status: :created, location: @resource }
+        format.json { render :edit, status: :created, location: @resource }
       else
         format.html { render :new }
         format.json { render json: @resource.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class ResourcesController < ApplicationController
     respond_to do |format|
       if @resource.update(resource_params)
         format.html { redirect_to @resource, notice: 'Resource was successfully updated.' }
-        format.json { render :show, status: :ok, location: @resource }
+        format.json { render :edit, status: :ok, location: @resource }
       else
         format.html { render :edit }
         format.json { render json: @resource.errors, status: :unprocessable_entity }
