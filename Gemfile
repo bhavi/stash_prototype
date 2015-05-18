@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
-#gem 'datacite', path: "../stash_datacite_prototype"
+gem 'datacite', :git => 'https://github.com/bhavi/stash_datacite_prototype.git'
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
 

@@ -7,6 +7,13 @@ GIT
       actionpack (~> 4.0)
       activemodel (~> 4.0)
 
+GIT
+  remote: https://github.com/bhavi/stash_datacite_prototype.git
+  revision: 94a91ca47804d0ccc43412c8935ee5ee4711d2fe
+  specs:
+    datacite (0.0.1)
+      rails (~> 4.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -183,6 +190,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.0)
   byebug
   capistrano-rails
+  datacite!
   highline
   jbuilder (~> 2.0)
   jquery-rails
