@@ -21,12 +21,14 @@
   <div class="form-group">
     <div class="col-xs-6">
       <%= f.input :identifier %>
-      <%= f.input :identifierType, label: "Identifier Type", input_html: { value: 'DOI (Digital Object Identifier)' } , disabled: true %>
+      <%= f.input :identifierType, label: "Identifier Type", readonly: true, input_html: { value: 'DOI (Digital Object Identifier)' } %>
       <%#= f.input :user_id %>
       <%= f.input :local_id, label: "Local ID" %>
       </div>
     </div>
   <%= link_to 'Back', resources_path, class: "btn" %>
   <%= f.button :submit, :class => 'btn-primary' %>
-  <%= link_to('Continue', datacite.new_creator_path(resource_id: @resource.id), class: "btn") %>
+  <% unless @resource.new_record? %>
+    <%= link_to('Continue', datacite.new_creator_path(resource_id: @resource.id), class: "btn") %>
+  <% end %>
 <% end %>
