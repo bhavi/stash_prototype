@@ -56,7 +56,7 @@ namespace :deploy do
       end
     end
   end
-  before "deploy:start", "bundle:install"
+  # before "deploy:start", "bundle:install"
 
   desc 'Restart Phusion'
   task :restart do
