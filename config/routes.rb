@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :resources
 
+  resources :file_uploads
+
   mount Datacite::Engine, at: "/datacite"
 
   # The priority is based upon order of creation: first created -> highest priority.
