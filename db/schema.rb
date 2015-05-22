@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512165901) do
+ActiveRecord::Schema.define(version: 20150522004412) do
 
   create_table "datacite_contributors", force: :cascade do |t|
     t.string   "contributorName"
@@ -99,6 +99,24 @@ ActiveRecord::Schema.define(version: 20150512165901) do
   create_table "datacite_titles", force: :cascade do |t|
     t.string   "title"
     t.integer  "titleType"
+    t.integer  "resource_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "file_uploads", force: :cascade do |t|
+    t.string   "upload_file_name"
+    t.string   "upload_file_size"
+    t.string   "upload_content_type"
+    t.integer  "resource_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "image_uploads", force: :cascade do |t|
+    t.string   "image_name"
+    t.string   "image_size"
+    t.string   "image_type"
     t.integer  "resource_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
