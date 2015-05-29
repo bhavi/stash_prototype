@@ -18,8 +18,8 @@
   <tbody>
     <% @resources.each do |resource| %>
       <tr>
-        <td><%= resource.identifier %></td>
-        <td><%= resource.identifierType %></td>
+        <td><%#= resource.identifier %></td>
+        <td><%#= resource.identifierType %></td>
        <!--  <td><%= resource.user_id %></td> -->
         <td><%= resource.local_id %></td>
         <td><%= link_to 'Edit', edit_resource_path(resource), class: "btn btn-info" %></td>

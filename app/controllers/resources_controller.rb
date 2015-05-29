@@ -14,7 +14,7 @@ class ResourcesController < ApplicationController
 
   # GET /resources/new
   def new
-    @resource = Resource.new
+    create
   end
 
   # GET /resources/1/edit
@@ -24,14 +24,14 @@ class ResourcesController < ApplicationController
   # POST /resources
   # POST /resources.json
   def create
-    @resource = Resource.new(resource_params)
+    @resource = Resource.new
 
     respond_to do |format|
       if @resource.save
-        format.html { redirect_to edit_resource_path(@resource), notice: 'Resource was successfully created.' }
+        format.html { redirect_to datacite.generals_new_path( resource_id: @resource.id) }
         format.json { render :edit, status: :created, location: @resource }
       else
-        format.html { render :new }
+        format.html { redirect_to datacite_creators_path }
         format.json { render json: @resource.errors, status: :unprocessable_entity }
       end
     end
