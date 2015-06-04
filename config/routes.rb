@@ -1,17 +1,6 @@
 Rails.application.routes.draw do
-  root to: "static_pages#home"
 
-  get 'static_pages/home'
-
-  resources :institutions
-
-  resources :users
-
-  resources :resources
-
-  resources :file_uploads
-
-  mount Datacite::Engine, at: "/datacite"
+  mount Datacite::Engine, at: "/stash_engine"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

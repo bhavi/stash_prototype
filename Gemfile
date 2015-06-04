@@ -16,7 +16,7 @@ gem 'therubyracer', platforms: :ruby
 
 # needed for deploy restarts and other things
 gem 'passenger'
-
+gem 'mysql2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -27,11 +27,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-
-gem 'datacite', :git => 'https://github.com/bhavi/stash_datacite_prototype.git'
-
-gem 'bootstrap-sass', '~> 3.3.0'
-gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
 
 gem "jquery-fileupload-rails"
 gem "paperclip", "~> 4.2"

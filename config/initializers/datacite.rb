@@ -1,1 +1,1 @@
-Datacite.resource_class = "Resource"
+# Datacite.resource_class = "Resource"
