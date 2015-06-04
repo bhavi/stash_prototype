@@ -1,13 +1,11 @@
 <header class="navbar navbar-static-top">
-  <div class="container">
-    <div class="nav navbar-inverse">
-      <ul class="nav navbar-nav">
-        <li role="presentation" class="active"><%=link_to "Home", main_app.root_path %></li>
-        <li role="presentation"><%=link_to "Search Data", '#' %></li>
-        <li role="presentation"><%=link_to "Share Data", '#' %></li>
-        <li role="presentation" class="active"><%=link_to "My Datasets", datacite.generals_index_path %></li>
-      </ul>
-      <%= image_tag("stash_header.png", alt: "Responsive image", class: "img-responsive", width: "100%" ) %>
-    </div>
+  <div class="nav navbar-inverse">
+    <ul class="nav navbar-nav">
+      <li role="presentation" class="active"><%=link_to "Home", main_app.root_path %></li>
+      <li role="presentation"><%=link_to "Search Data", '#' %></li>
+      <li role="presentation"><%=link_to "Share Data", '#' %></li>
+      <li role="presentation" class="active"><%=link_to "My Datasets", datacite.generals_index_path %></li>
+    </ul>
+    <%= image_tag("stash_header.png", alt: "Responsive image", class: "img-responsive", width: "100%" ) %>
   </div>
 </header>
