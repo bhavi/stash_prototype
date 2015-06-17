@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
   <title>TestStash</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -13,8 +13,11 @@
       <a href="#">LogIn</a>
     </div>
   </div>
-
+  <div class="container">
+    <%= render 'layouts/header' %>
     <%= yield %>
-
+  </div>
+  <br/>
+  <%= render 'layouts/footer' %>
 </body>
 </html>
