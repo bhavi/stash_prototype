@@ -1,1 +1,0 @@
-# Datacite.resource_class = "Resource"

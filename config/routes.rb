@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  mount Datacite::Engine, at: "/stash_engine"
+  mount StashEngine::Engine, at: "/stash_engine"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
