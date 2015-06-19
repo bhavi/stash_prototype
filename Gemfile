@@ -29,9 +29,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #gem 'mysql2'
 
-# to switch on your local machine you'll need to do
+# http://stackoverflow.com/questions/9474605/bundler-rails-require-different-gem-in-development
+# see comment by mcasimir
+
+# this allows you to use an environment of RAILS_ENV=development_local_engines
+# to test engines locally on your machine and make changes without having to
+# commit and push them each time.
+#
+# Examples in this environment:
 # RAILS_ENV=development_local_engines bundle
-# and any environment-type commands through similar like below
+#
+# and any environment-type commands through similar like below:
 # RAILS_ENV=development_local_engines bundle exec rails s
 if ENV['RAILS_ENV'] == 'development_local_engines'
   gem 'stash_engine', path: '../stash_engine'
