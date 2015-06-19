@@ -28,8 +28,18 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'mysql2'
-gem 'stash_engine', path: '/Users/bvedula/workspace2/stash_engine'
-gem 'datacite', path: '/Users/bvedula/workspace2/datacite'
+
+# to switch on your local machine you'll need to do
+# RAILS_ENV=development_local_engines bundle
+# and any environment-type commands through similar like below
+# RAILS_ENV=development_local_engines bundle exec rails s
+if ENV['RAILS_ENV'] == 'development_local_engines'
+  gem 'stash_engine', path: '../stash_engine'
+  gem 'datacite', path: '../stash_datacite_prototype'
+else
+  gem 'stash_engine', :git => 'https://github.com/bhavi/stash_engine.git', :branch => 'master'
+  gem 'datacite', :git => 'https://github.com/bhavi/stash_datacite_prototype.git', :branch => 'master'
+end
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '>= 3.2'
