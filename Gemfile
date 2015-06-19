@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'mysql2'
+#gem 'mysql2'
 
 # to switch on your local machine you'll need to do
 # RAILS_ENV=development_local_engines bundle
