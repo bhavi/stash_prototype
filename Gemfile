@@ -43,7 +43,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # RAILS_ENV=development_local_engines bundle exec rails s
 if ENV['RAILS_ENV'] == 'development_local_engines'
   gem 'stash_engine', path: '../stash_engine'
-  gem 'datacite', path: '../stash_datacite_prototype'
+  gem 'datacite', path: '../datacite'
 else
   gem 'stash_engine', :git => 'https://github.com/bhavi/stash_engine.git', :branch => 'master'
   gem 'datacite', :git => 'https://github.com/bhavi/stash_datacite_prototype.git', :branch => 'master'
