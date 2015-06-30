@@ -8,7 +8,7 @@ development_local_engines:
   <<: *DEVELOPMENT
 
 test:
-  adapter: mysql2
+  adapter: sqlite3
   database: stash_prototype_test
   username:
   password:
