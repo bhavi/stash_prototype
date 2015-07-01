@@ -2,10 +2,11 @@ Rails.application.routes.draw do
 
 
   Blacklight::Marc.add_routes(self)
-  root to: "catalog#index"
+  #root to: "catalog#index"
+  #get 'catalog/index', to: 'catalog#index'
   blacklight_for :catalog
   devise_for :users
-  #root to: "static_pages#home"
+  root to: "static_pages#home"
 
   get 'static_pages/home'
 
