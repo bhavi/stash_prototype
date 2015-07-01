@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604170628) do
+ActiveRecord::Schema.define(version: 20150630232443) do
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer  "user_id",       null: false
+    t.string   "user_type"
+    t.string   "document_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "document_type"
+  end
+
+  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
 
   create_table "datacite_contributors", force: :cascade do |t|
     t.string   "contributorName"
@@ -111,44 +123,15 @@ ActiveRecord::Schema.define(version: 20150604170628) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "file_uploads", force: :cascade do |t|
-    t.string   "upload_file_name"
-    t.string   "upload_file_size"
-    t.string   "upload_content_type"
-    t.integer  "resource_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
-
-  create_table "image_uploads", force: :cascade do |t|
-    t.string   "image_name"
-    t.string   "image_size"
-    t.string   "image_type"
-    t.integer  "resource_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "institutions", force: :cascade do |t|
-    t.string   "abbreviation"
-    t.string   "short_name"
-    t.string   "long_name"
-    t.string   "landing_page"
-    t.string   "external_id_strip"
-    t.string   "campus"
-    t.string   "url"
-    t.text     "url_text"
-    t.string   "logo"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
-  create_table "resources", force: :cascade do |t|
+  create_table "searches", force: :cascade do |t|
+    t.text     "query_params"
     t.integer  "user_id"
-    t.string   "local_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "user_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
+
+  add_index "searches", ["user_id"], name: "index_searches_on_user_id"
 
   create_table "stash_engine_file_uploads", force: :cascade do |t|
     t.string   "upload_file_name"
@@ -203,16 +186,22 @@ ActiveRecord::Schema.define(version: 20150604170628) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "institution_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "external_id"
-    t.string   "oauth_token"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "guest",                  default: false
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

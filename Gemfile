@@ -17,6 +17,9 @@ gem 'therubyracer', platforms: :ruby
 # needed for deploy restarts and other things
 gem 'passenger'
 
+gem 'blacklight', ">= 5.3.0"
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -74,3 +77,9 @@ group :development do
   gem 'highline'
 end
 
+
+gem 'jettywrapper', '>= 2.0'
+gem 'rsolr', '~> 1.0.6'
+gem 'devise'
+gem 'devise-guests', '~> 0.3'
+gem 'blacklight-marc', '~> 5.0'
