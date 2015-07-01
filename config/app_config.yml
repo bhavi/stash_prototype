@@ -5,7 +5,7 @@ defaults: &DEFAULTS
 development: &DEVELOPMENT
   <<: *DEFAULTS
 
-development_local_engines:
+local_engines:
   <<: *DEVELOPMENT
 
 test:

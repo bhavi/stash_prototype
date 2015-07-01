@@ -4,11 +4,11 @@ development: &DEVELOPMENT
   pool: 5
   timeout: 5000
 
-development_local_engines:
+local_engines:
   <<: *DEVELOPMENT
 
 test:
-  adapter: mysql2
+  adapter: sqlite3
   database: stash_prototype_test
   username:
   password:
