@@ -26,15 +26,15 @@
 </head>
 <body>
 <div class="container">
-  <%= render :partial => 'layouts/stash_engine/header' %>
-  <%= render :partial => 'shared/header_navbar' %>
-  <%= render partial: 'shared/ajax_modal' %>
+  <%= render :partial => '/layouts/stash_engine/header' %>
+  <%= render :partial => '/shared/header_navbar' %>
+  <%= render partial: '/shared/ajax_modal' %>
   <%= content_tag :h1, application_name, class: 'sr-only application-heading' %>
-  <%= render :partial=>'/flash_msg', layout: 'shared/flash_messages' %>
+  <%= render :partial=>'/flash_msg', layout: '/shared/flash_messages' %>
   <div class="row">
   <%= yield %>
   </div>
-  <%= render 'layouts/stash_engine/footer' %>
+  <%= render '/layouts/stash_engine/footer' %>
 </div>
 </body>
 </html>
