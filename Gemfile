@@ -46,7 +46,7 @@ if ENV['RAILS_ENV'] == 'local_engines'
   gem 'datacite', path: '../datacite'
 else
   gem 'stash_engine', :git => 'https://github.com/bhavi/stash_engine.git', :branch => 'master'
-  gem 'datacite', :git => 'https://github.com/bhavi/stash_datacite_prototype.git', :branch => 'master'
+  gem 'datacite', :git => 'https://github.com/bhavi/datacite_engine.git', :branch => 'master'
 end
 
 gem 'bootstrap-sass', '~> 3.3.5'
