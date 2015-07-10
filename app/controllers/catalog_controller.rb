@@ -1,8 +1,9 @@
 # -*- encoding : utf-8 -*-
 class CatalogController < ApplicationController
 
-  include Blacklight::Catalog
 
+  include Blacklight::Catalog
+  layout 'blacklight'
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
     config.default_solr_params = {
@@ -11,7 +12,7 @@ class CatalogController < ApplicationController
     }
 
     # solr path which will be added to solr base url before the other solr params.
-    config.solr_path = '/blacklight-core/select'
+    config.solr_path = 'blacklight-core/select'
 
     # items to show per page, each number in the array represent another option to choose from.
     #config.per_page = [10,20,50,100]
@@ -19,21 +20,21 @@ class CatalogController < ApplicationController
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SearchHelper#solr_doc_params) or
     ## parameters included in the Blacklight-jetty document requestHandler.
     #
-    #config.default_document_solr_params = {
-    #  :qt => 'document',
-    #  ## These are hard-coded in the blacklight 'document' requestHandler
-    #  # :fl => '*',
-    #  # :rows => 1
-    #  # :q => '{!raw f=id v=$id}'
-    #}
+    config.default_document_solr_params = {
+     :qt => 'document',
+     # These are hard-coded in the blacklight 'document' requestHandler
+     :fl => '*',
+     :rows => 1,
+     :q => '{!raw f=id v=$id}'
+    }
 
     # solr field configuration for search results/index views
-    config.index.title_field = 'title_display'
+    config.index.title_field = 'name'
     config.index.display_type_field = 'format'
 
     # solr field configuration for document/show views
-    #config.show.title_field = 'title_display'
-    #config.show.display_type_field = 'format'
+    config.show.title_field = 'name'
+    config.show.display_type_field = 'format'
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
@@ -78,7 +79,7 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    # config.add_index_field 'title_display', :label => 'Title'
+    config.add_index_field 'name', :label => 'Name'
     # config.add_index_field 'title_vern_display', :label => 'Title'
     # config.add_index_field 'author_display', :label => 'Author'
     # config.add_index_field 'author_vern_display', :label => 'Author'
@@ -90,7 +91,7 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    # config.add_show_field 'title_display', :label => 'Title'
+    config.add_show_field 'name', :label => 'name'
     # config.add_show_field 'title_vern_display', :label => 'Title'
     # config.add_show_field 'subtitle_display', :label => 'Subtitle'
     # config.add_show_field 'subtitle_vern_display', :label => 'Subtitle'
@@ -130,27 +131,27 @@ class CatalogController < ApplicationController
     # case for a BL "search field", which is really a dismax aggregate
     # of Solr search fields.
 
-    config.add_search_field('title') do |field|
+    config.add_search_field('name') do |field|
       # solr_parameters hash are sent to Solr as ordinary url query params.
-      field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
+      field.solr_parameters = { :'spellcheck.dictionary' => 'name' }
 
       # :solr_local_parameters will be sent using Solr LocalParams
       # syntax, as eg {! qf=$title_qf }. This is neccesary to use
       # Solr parameter de-referencing like $title_qf.
       # See: http://wiki.apache.org/solr/LocalParams
       field.solr_local_parameters = {
-        :qf => '$title_qf',
-        :pf => '$title_pf'
+        :qf => '$name_qf',
+        :pf => '$name_pf'
       }
     end
 
-    config.add_search_field('publisher') do |field|
-      field.solr_parameters = { :'spellcheck.dictionary' => 'publisher' }
-      field.solr_local_parameters = {
-        :qf => '$publisher_qf',
-        :pf => '$publisher_pf'
-      }
-    end
+    # config.add_search_field('author') do |field|
+    #   field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
+    #   field.solr_local_parameters = {
+    #     :qf => '$author_qf',
+    #     :pf => '$author_pf'
+    #   }
+    # end
 
     # Specifying a :qt only to show it's possible, and so our internal automated
     # tests can test it. In this case it's the same as
