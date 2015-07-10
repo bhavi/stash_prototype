@@ -78,6 +78,4 @@ group :development do
 end
 
 
-gem 'jettywrapper', '>= 2.0'
 gem 'rsolr', '~> 1.0.6'
-gem 'blacklight-marc', '~> 5.0'
