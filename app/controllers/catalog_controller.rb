@@ -32,8 +32,16 @@ class CatalogController < ApplicationController
     config.index.title_field = 'name'
     config.index.display_type_field = 'format'
 
+    # solr field configuration for search results/index views
+    config.index.title_field = 'title'
+    config.index.display_type_field = 'format'
+
     # solr field configuration for document/show views
     config.show.title_field = 'name'
+    config.show.display_type_field = 'format'
+
+    # solr field configuration for document/show views
+    config.show.title_field = 'title'
     config.show.display_type_field = 'format'
 
     # solr fields that will be treated as facets by the blacklight application
@@ -80,6 +88,10 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     config.add_index_field 'name', :label => 'Name'
+    config.add_index_field 'manu', :label => 'Manufacturer'
+    config.add_index_field 'identifier', :label => 'Identifier'
+    config.add_index_field 'title', :label => 'Title'
+    config.add_index_field 'publisher', :label => 'Publisher'
     # config.add_index_field 'title_vern_display', :label => 'Title'
     # config.add_index_field 'author_display', :label => 'Author'
     # config.add_index_field 'author_vern_display', :label => 'Author'
@@ -91,10 +103,14 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'name', :label => 'name'
-    # config.add_show_field 'title_vern_display', :label => 'Title'
-    # config.add_show_field 'subtitle_display', :label => 'Subtitle'
-    # config.add_show_field 'subtitle_vern_display', :label => 'Subtitle'
+    config.add_show_field 'name', :label => 'Name'
+    config.add_show_field 'manu', :label => 'Manufacturer'
+    config.add_show_field 'cat', :label => 'Category'
+    config.add_show_field 'features', :label => 'Features'
+    config.add_show_field 'weight', :label => 'Weight'
+    config.add_show_field 'identifier', :label => 'Identifier'
+    config.add_show_field 'title', :label => 'Title'
+    config.add_show_field 'publisher', :label => 'Publisher'
     # config.add_show_field 'author_display', :label => 'Author'
     # config.add_show_field 'author_vern_display', :label => 'Author'
     # config.add_show_field 'format', :label => 'Format'
@@ -145,13 +161,21 @@ class CatalogController < ApplicationController
       }
     end
 
-    # config.add_search_field('author') do |field|
-    #   field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
-    #   field.solr_local_parameters = {
-    #     :qf => '$author_qf',
-    #     :pf => '$author_pf'
-    #   }
-    # end
+    config.add_search_field('title') do |field|
+      field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
+      field.solr_local_parameters = {
+        :qf => '$title_qf',
+        :pf => '$title_pf'
+      }
+    end
+
+    config.add_search_field('publisher') do |field|
+      field.solr_parameters = { :'spellcheck.dictionary' => 'publisher' }
+      field.solr_local_parameters = {
+        :qf => '$publisher_qf',
+        :pf => '$publisher_pf'
+      }
+    end
 
     # Specifying a :qt only to show it's possible, and so our internal automated
     # tests can test it. In this case it's the same as
