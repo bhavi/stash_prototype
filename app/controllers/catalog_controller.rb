@@ -27,22 +27,18 @@ class CatalogController < ApplicationController
      :rows => 1,
      :q => '{!raw f=id v=$id}'
     }
-
-    # solr field configuration for search results/index views
-    config.index.title_field = 'name'
-    config.index.display_type_field = 'format'
+    # # # solr field configuration for search results/index views
+    # config.index.title_field = 'name'
+    # config.index.display_type_field = 'format'
+    # # # solr field configuration for document/show views
+    # config.show.title_field = 'name'
+    # config.show.display_type_field = 'format'
 
     # solr field configuration for search results/index views
     config.index.title_field = 'title'
-    config.index.display_type_field = 'format'
-
-    # solr field configuration for document/show views
-    config.show.title_field = 'name'
-    config.show.display_type_field = 'format'
 
     # solr field configuration for document/show views
     config.show.title_field = 'title'
-    config.show.display_type_field = 'format'
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
@@ -63,64 +59,38 @@ class CatalogController < ApplicationController
     #
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
-    # config.add_facet_field 'format', :label => 'Format'
-    # config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
-    # config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20
-    # config.add_facet_field 'language_facet', :label => 'Language', :limit => true
-    # config.add_facet_field 'lc_1letter_facet', :label => 'Call Number'
-    # config.add_facet_field 'subject_geo_facet', :label => 'Region'
-    # config.add_facet_field 'subject_era_facet', :label => 'Era'
-
-    # config.add_facet_field 'example_pivot_field', :label => 'Pivot Field', :pivot => ['format', 'language_facet']
-
+    config.add_facet_field 'title', :label => 'Title'
+    config.add_facet_field 'subject', :label => 'Topic', :limit => 20
+    config.add_facet_field 'publisher', :label => 'Publisher'
+    config.add_facet_field 'publicationYear', :label => 'Publication Year'
     # config.add_facet_field 'example_query_facet_field', :label => 'Publish Date', :query => {
     #    :years_5 => { :label => 'within 5 Years', :fq => "pub_date:[#{Time.now.year - 5 } TO *]" },
     #    :years_10 => { :label => 'within 10 Years', :fq => "pub_date:[#{Time.now.year - 10 } TO *]" },
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
-    # config.add_facet_fields_to_solr_request!
+    config.add_facet_fields_to_solr_request!
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field 'name', :label => 'Name'
-    config.add_index_field 'manu', :label => 'Manufacturer'
     config.add_index_field 'identifier', :label => 'Identifier'
     config.add_index_field 'title', :label => 'Title'
     config.add_index_field 'publisher', :label => 'Publisher'
-    # config.add_index_field 'title_vern_display', :label => 'Title'
-    # config.add_index_field 'author_display', :label => 'Author'
-    # config.add_index_field 'author_vern_display', :label => 'Author'
-    # config.add_index_field 'format', :label => 'Format'
-    # config.add_index_field 'language_facet', :label => 'Language'
-    # config.add_index_field 'published_display', :label => 'Published'
-    # config.add_index_field 'published_vern_display', :label => 'Published'
-    # config.add_index_field 'lc_callnum_display', :label => 'Call number'
+    config.add_index_field 'publicationYear', :label => 'Publication Year'
+    config.add_index_field 'creatorName', :label => 'Creator Name'
+    config.add_index_field 'subject', :label => 'Subject'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'name', :label => 'Name'
-    config.add_show_field 'manu', :label => 'Manufacturer'
-    config.add_show_field 'cat', :label => 'Category'
-    config.add_show_field 'features', :label => 'Features'
-    config.add_show_field 'weight', :label => 'Weight'
     config.add_show_field 'identifier', :label => 'Identifier'
     config.add_show_field 'title', :label => 'Title'
     config.add_show_field 'publisher', :label => 'Publisher'
-    # config.add_show_field 'author_display', :label => 'Author'
-    # config.add_show_field 'author_vern_display', :label => 'Author'
-    # config.add_show_field 'format', :label => 'Format'
-    # config.add_show_field 'url_fulltext_display', :label => 'URL'
-    # config.add_show_field 'url_suppl_display', :label => 'More Information'
-    # config.add_show_field 'language_facet', :label => 'Language'
-    # config.add_show_field 'published_display', :label => 'Published'
-    # config.add_show_field 'published_vern_display', :label => 'Published'
-    # config.add_show_field 'lc_callnum_display', :label => 'Call number'
-    # config.add_show_field 'isbn_t', :label => 'ISBN'
+    config.add_show_field 'publicationYear', :label => 'Publication Year'
+    config.add_show_field 'creatorName', :label => 'Creator Name'
+    config.add_show_field 'subject', :label => 'Subject'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -141,7 +111,6 @@ class CatalogController < ApplicationController
     # since we aren't specifying it otherwise.
 
     config.add_search_field 'all_fields', :label => 'All Fields'
-
 
     # Now we see how to over-ride Solr request handler defaults, in this
     # case for a BL "search field", which is really a dismax aggregate
@@ -177,17 +146,25 @@ class CatalogController < ApplicationController
       }
     end
 
+    config.add_search_field('creatorName') do |field|
+      field.solr_parameters = { :'spellcheck.dictionary' => 'creatorName' }
+      field.solr_local_parameters = {
+        :qf => '$creatorName_qf',
+        :pf => '$creatorName_pf'
+      }
+    end
+
     # Specifying a :qt only to show it's possible, and so our internal automated
     # tests can test it. In this case it's the same as
     # config[:default_solr_parameters][:qt], so isn't actually neccesary.
-    # config.add_search_field('subject') do |field|
-    #   field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
-    #   field.qt = 'search'
-    #   field.solr_local_parameters = {
-    #     :qf => '$subject_qf',
-    #     :pf => '$subject_pf'
-    #   }
-    # end
+    config.add_search_field('subject') do |field|
+      field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
+      field.qt = 'search'
+      field.solr_local_parameters = {
+        :qf => '$subject_qf',
+        :pf => '$subject_pf'
+      }
+    end
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
