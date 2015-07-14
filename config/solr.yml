@@ -1,4 +1,6 @@
 # This is a sample config file that points to a solr server for each environment
+local_engines:
+  url: http://localhost:8983/solr/blacklight-core
 development:
   url: http://localhost:8983/solr/blacklight-core
 test:
