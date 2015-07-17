@@ -58,6 +58,9 @@ gem 'autoprefixer-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'blacklight'
+gem 'geoblacklight'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -74,3 +77,5 @@ group :development do
   gem 'highline'
 end
 
+
+gem 'rsolr', '~> 1.0.6'
