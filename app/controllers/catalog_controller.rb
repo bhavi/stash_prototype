@@ -12,8 +12,6 @@ class CatalogController < ApplicationController
       :rows => 10,
       'q.alt' => '*:*'
     }
-    # solr path which will be added to solr base url before the other solr params.
-    config.solr_path = 'blacklight-core/select'
 
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or
     ## parameters included in the Blacklight-jetty document requestHandler.
@@ -85,14 +83,14 @@ class CatalogController < ApplicationController
       # :segments => true
     }
 
-    # config.add_facet_field 'dc_rights_s', label: 'Access', limit: 8, partial: "icon_facet"
-    # config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8, partial: "icon_facet"
-    # config.add_facet_field 'dc_format_s', :label => 'Format', :limit => 8
+    config.add_facet_field 'dc_rights_s', label: 'Access', limit: 8, partial: "icon_facet"
+    config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8, partial: "icon_facet"
+    config.add_facet_field 'dc_format_s', :label => 'Format', :limit => 8
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
-    # config.add_facet_fields_to_solr_request!
+    #config.add_facet_fields_to_solr_request!
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display

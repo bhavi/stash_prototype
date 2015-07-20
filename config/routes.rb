@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  # root to: "catalog#index"
+  #root to: "catalog#index"
   blacklight_for :catalog
   root to: "static_pages#home"
 
