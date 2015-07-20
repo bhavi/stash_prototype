@@ -2,7 +2,7 @@
 require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
-
+  layout 'blacklight'
   include Blacklight::Catalog
 
   configure_blacklight do |config|
