@@ -229,7 +229,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   blacklight
-  bootstrap-sass (~> 3.3.5)
+  bootstrap-sass
   byebug
   capistrano-rails
   datacite!
@@ -240,7 +240,7 @@ DEPENDENCIES
   passenger
   rails (= 4.2.1)
   rsolr (~> 1.0.6)
-  sass-rails (>= 3.2)
+  sass-rails
   sdoc (~> 0.4.0)
   spring
   sqlite3

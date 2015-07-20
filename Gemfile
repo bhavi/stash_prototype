@@ -49,8 +49,8 @@ else
   gem 'datacite', :git => 'https://github.com/bhavi/stash_datacite_prototype.git', :branch => 'master'
 end
 
-gem 'bootstrap-sass', '~> 3.3.5'
-gem 'sass-rails', '>= 3.2'
+gem 'bootstrap-sass'
+gem 'sass-rails'
 gem 'autoprefixer-rails'
 
 # gem "jquery-fileupload-rails"
