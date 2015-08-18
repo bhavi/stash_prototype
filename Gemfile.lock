@@ -1,14 +1,14 @@
 GIT
   remote: https://github.com/bhavi/datacite_engine.git
-  revision: d29784cc6e1d0881727a8703a0714f297aff80c6
+  revision: 94821f03802377bd632ed96afbb6a4dd2691bb72
   branch: master
   specs:
-    datacite_engine (0.0.1)
+    datacite (0.0.1)
       rails (~> 4.2.1)
 
 GIT
   remote: https://github.com/bhavi/stash_engine.git
-  revision: eb7ec12d54d833f5a8f76eed4671abdf5d98c9af
+  revision: a09408f0187bbaafe9ac25604504399742cf1ff9
   branch: master
   specs:
     stash_engine (0.0.1)
@@ -230,7 +230,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capistrano-rails
-  datacite_engine!
+  datacite!
   geoblacklight (~> 0.10.1)
   highline
   jbuilder (~> 2.0)
