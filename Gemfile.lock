@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/bhavi/stash_datacite_prototype.git
+  remote: https://github.com/bhavi/datacite_engine.git
   revision: f0b3a0dbae3b4582914b7bb3c4dc9568d5a3a064
   branch: master
   specs:

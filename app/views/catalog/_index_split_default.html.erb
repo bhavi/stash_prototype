@@ -1,0 +1,24 @@
+<% # header bar for doc items in index view -%>
+<%= content_tag :div, class: 'documentHeader row', data: { layer_id: document[:uuid], bbox: document.bounding_box_as_wsen } do %>
+  <div class='status-icons'>
+    <%#= geoblacklight_icon(document['layer_geom_type_s']) %>
+    <%= geoblacklight_icon(document['affliation_s']) %>
+    <%= geoblacklight_icon(document['rights_s']) %>
+  </div>
+  <h3 class="index_title col-sm-9s cosl-lg-10 text-span">
+    <span class='caret-toggle'></span>
+    <% counter = document_counter_with_offset(document_counter) %>
+    <span class="document-counter">
+      <%= t('blacklight.search.documents.counter', :counter => counter) if counter %>
+    </span>
+    <%= link_to_document document, document_show_link_field(document), counter: counter, title: document['title_s'] %>
+  </h3>
+
+  <div class='col-md-12 more-info-area'>
+    <div class='collapse' data-collapse-target="<%= document['uuid'] %>">
+      <small>
+        <%= document['solr_year_i'] %>. <i><%= document['creator_sm'].nil?? '' : document['creator_sm'].join(', ') %></i>. <%= snippit(document['description_s']) %>. <%= document['publisher_s'] %>.
+      </small>
+    </div>
+  </div>
+<% end %>

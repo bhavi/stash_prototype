@@ -18,7 +18,7 @@ class CatalogController < ApplicationController
     #
     config.default_document_solr_params = {
      :qt => 'document',
-     :q => '{!raw f=layer_slug_s v=$id}'
+     :q => '{!raw f=uuid v=$id}'
     }
 
     config.search_builder_class = Geoblacklight::SearchBuilder
@@ -27,13 +27,11 @@ class CatalogController < ApplicationController
     # config.index.show_link = 'title_display'
     # config.index.record_display_type = 'format'
 
-    config.index.title_field = 'dc_title_s'
+    config.index.title_field = 'title_s'
 
     # solr field configuration for document/show views
 
     config.show.display_type_field = 'format'
-
-
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
@@ -70,11 +68,11 @@ class CatalogController < ApplicationController
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-    config.add_facet_field 'dct_provenance_s', label: 'Institution', limit: 8, partial: "icon_facet"
-    config.add_facet_field 'dc_creator_sm', :label => 'Author', :limit => 8
-    config.add_facet_field 'dc_publisher_s', :label => 'Publisher', :limit => 8
-    config.add_facet_field 'dc_subject_sm', :label => 'Subject', :limit => 8
-    config.add_facet_field 'dct_spatial_sm', :label => 'Place', :limit => 8
+    config.add_facet_field 'affliation_s', label: 'Institution', limit: 8, partial: "icon_facet"
+    config.add_facet_field 'creator_sm', :label => 'Author', :limit => 8
+    config.add_facet_field 'publisher_s', :label => 'Publisher', :limit => 8
+    config.add_facet_field 'subject_sm', :label => 'Subject', :limit => 8
+    config.add_facet_field 'geoLocationPlace_sm', :label => 'Place', :limit => 8
     config.add_facet_field 'dct_isPartOf_sm', :label => 'Collection', :limit => 8
 
     config.add_facet_field 'solr_year_i', :label => 'Year', :limit => 10, :range => {
@@ -83,14 +81,14 @@ class CatalogController < ApplicationController
       # :segments => true
     }
 
-    config.add_facet_field 'dc_rights_s', label: 'Access', limit: 8, partial: "icon_facet"
-    config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8, partial: "icon_facet"
-    config.add_facet_field 'dc_format_s', :label => 'Format', :limit => 8
+    config.add_facet_field 'rights_s', label: 'Access', limit: 8, partial: "icon_facet"
+    #config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8, partial: "icon_facet"
+    config.add_facet_field 'format_s', :label => 'Format', :limit => 8
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
-    #config.add_facet_fields_to_solr_request!
+    config.add_facet_fields_to_solr_request!
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
@@ -118,14 +116,14 @@ class CatalogController < ApplicationController
     # item_prop: [String] property given to span with Schema.org item property
     # link_to_search: [Boolean] that can be passed to link to a facet search
     # helper_method: [Symbol] method that can be used to render the value
-    config.add_show_field 'dc_creator_sm', label: 'Author(s)', itemprop: 'author'
-    config.add_show_field 'dc_description_s', label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
-    config.add_show_field 'dc_publisher_s', label: 'Publisher', itemprop: 'publisher'
+    config.add_show_field 'creator_sm', label: 'Author(s)', itemprop: 'author'
+    config.add_show_field 'description_s', label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
+    config.add_show_field 'publisher_s', label: 'Publisher', itemprop: 'publisher'
     config.add_show_field 'dct_isPartOf_sm', label: 'Collection', itemprop: 'isPartOf'
-    config.add_show_field 'dct_spatial_sm', label: 'Place(s)', itemprop: 'spatial', link_to_search: true
-    config.add_show_field 'dc_subject_sm', label: 'Subject(s)', itemprop: 'keywords', link_to_search: true
+    config.add_show_field 'geoLocationPlace_sm', label: 'Place(s)', itemprop: 'spatial', link_to_search: true
+    config.add_show_field 'subject_sm', label: 'Subject(s)', itemprop: 'keywords', link_to_search: true
     config.add_show_field 'dct_temporal_sm', label: 'Year', itemprop: 'temporal'
-    config.add_show_field 'dct_provenance_s', label: 'Held by', link_to_search: true
+    config.add_show_field 'affliation_s', label: 'Held by', link_to_search: true
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -221,7 +219,5 @@ class CatalogController < ApplicationController
     # 'darkMatter' http://cartodb.com/basemaps/
     config.basemap_provider = 'mapquest'
   end
-
-
 
 end
