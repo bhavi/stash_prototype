@@ -1,14 +1,14 @@
 GIT
-  remote: https://github.com/bhavi/stash_datacite_prototype.git
-  revision: f0b3a0dbae3b4582914b7bb3c4dc9568d5a3a064
+  remote: https://github.com/bhavi/datacite_engine.git
+  revision: d29784cc6e1d0881727a8703a0714f297aff80c6
   branch: master
   specs:
-    datacite (0.0.1)
+    datacite_engine (0.0.1)
       rails (~> 4.2.1)
 
 GIT
   remote: https://github.com/bhavi/stash_engine.git
-  revision: d86b5aad0f8d121c8649d82ca0324ecd18158f27
+  revision: eb7ec12d54d833f5a8f76eed4671abdf5d98c9af
   branch: master
   specs:
     stash_engine (0.0.1)
@@ -52,8 +52,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    arel (6.0.2)
-    autoprefixer-rails (5.2.1.1)
+    arel (6.0.3)
+    autoprefixer-rails (5.2.1.2)
       execjs
       json
     binding_of_caller (0.7.2)
@@ -73,8 +73,7 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
     builder (3.2.2)
-    byebug (5.0.0)
-      columnize (= 0.9.0)
+    byebug (6.0.0)
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -94,17 +93,16 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
-    columnize (0.9.0)
     debug_inspector (0.0.2)
     deprecation (0.2.2)
       activesupport
     erubis (2.7.0)
-    execjs (2.5.2)
+    execjs (2.6.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
-    geoblacklight (0.10.1)
+    geoblacklight (0.10.2)
       blacklight (~> 5.12.0)
       blacklight_range_limit (~> 5.0.3)
       coderay
@@ -112,11 +110,11 @@ GEM
       font-awesome-rails (~> 4.1.0.0)
       geoblacklight-icons (>= 0.2)
       leaflet-rails (~> 0.7.3)
-      rails_config
+      rails_config (~> 0.4.2)
     geoblacklight-icons (0.2.1)
-    globalid (0.3.5)
+    globalid (0.3.6)
       activesupport (>= 4.1.0)
-    highline (1.7.2)
+    highline (1.7.3)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -131,13 +129,13 @@ GEM
       activesupport (>= 3.0.0)
     leaflet-rails (0.7.4)
     libv8 (3.16.14.11)
-    loofah (2.0.2)
+    loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.6.1)
     mini_portile (0.6.2)
-    minitest (5.7.0)
+    minitest (5.8.0)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     net-scp (1.2.1)
@@ -145,7 +143,7 @@ GEM
     net-ssh (2.9.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    passenger (5.0.14)
+    passenger (5.0.15)
       rack
       rake (>= 0.8.1)
     rack (1.6.4)
@@ -164,7 +162,7 @@ GEM
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.6)
+    rails-dom-testing (1.0.7)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
@@ -193,7 +191,7 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     spring (1.3.6)
-    sprockets (3.2.0)
+    sprockets (3.3.1)
       rack (~> 1.0)
     sprockets-rails (2.3.2)
       actionpack (>= 3.0)
@@ -232,7 +230,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capistrano-rails
-  datacite!
+  datacite_engine!
   geoblacklight (~> 0.10.1)
   highline
   jbuilder (~> 2.0)
@@ -249,3 +247,6 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6

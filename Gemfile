@@ -43,10 +43,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # RAILS_ENV=local_engines bundle exec rails s
 if ENV['RAILS_ENV'] == 'local_engines'
   gem 'stash_engine', path: '../stash_engine'
-  gem 'datacite', path: '../datacite'
+  gem 'datacite_engine', path: '../datacite_engine'
 else
   gem 'stash_engine', :git => 'https://github.com/bhavi/stash_engine.git', :branch => 'master'
-  gem 'datacite', :git => 'https://github.com/bhavi/stash_datacite_prototype.git', :branch => 'master'
+  gem 'datacite_engine', :git => 'https://github.com/bhavi/datacite_engine.git', :branch => 'master'
 end
 
 gem 'bootstrap-sass'
