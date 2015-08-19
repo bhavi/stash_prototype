@@ -1,15 +1,11 @@
-GIT
-  remote: https://github.com/bhavi/datacite_engine.git
-  revision: 94821f03802377bd632ed96afbb6a4dd2691bb72
-  branch: master
+PATH
+  remote: ../datacite_engine
   specs:
     datacite (0.0.1)
       rails (~> 4.2.1)
 
-GIT
-  remote: https://github.com/bhavi/stash_engine.git
-  revision: a09408f0187bbaafe9ac25604504399742cf1ff9
-  branch: master
+PATH
+  remote: ../stash_engine
   specs:
     stash_engine (0.0.1)
       rails (~> 4.2.1)
