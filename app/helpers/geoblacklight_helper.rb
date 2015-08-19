@@ -9,12 +9,13 @@ module GeoblacklightHelper
   end
 
   def document_available?
-    # @document.public? || (@document.same_institution? && user_signed_in?)
+    #@document.public? || (@document.same_institution? && user_signed_in?)
     true
   end
 
   def document_downloadable?
-    document_available? && @document.downloadable?
+    #document_available? && @document.downloadable?
+    true
   end
 
   def snippit(text)
@@ -99,9 +100,9 @@ module GeoblacklightHelper
   # @return [String]
   def cartodb_link(file_link)
     params  = URI.encode_www_form(
-        file: file_link,
-        provider: application_name,
-        logo: Settings.APPLICATION_LOGO_URL
+      file: file_link,
+      provider: application_name,
+      logo: Settings.APPLICATION_LOGO_URL
     )
     Settings.CARTODB_ONECLICK_LINK + '?' + params
   end
