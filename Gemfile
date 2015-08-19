@@ -76,5 +76,5 @@ group :development do
   gem 'capistrano-rails'
   gem 'highline'
 end
-
+gem 'rails_config', '~> 0.4.2'
 gem 'rsolr', '~> 1.0.6'
