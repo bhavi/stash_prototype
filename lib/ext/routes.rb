@@ -9,8 +9,9 @@ module Blacklight
         args = {only: [:show]}
 
         args[:constraints] = options[:constraints] if options[:constraints]
+        # /[^\/]+/
 
-        resources :solr_document, args.merge(path: primary_resource, controller: primary_resource, constraints: {:id => /[^\/]+/} ) do
+        resources :solr_document, args.merge(path: primary_resource, controller: primary_resource, constraints: {:id => /[^\/]+/ } ) do
           member do
             post "track"
           end
