@@ -1,5 +1,5 @@
 defaults: &DEFAULTS
-  metadata_engines: [ "Datacite"]
+  metadata_engines: [ "DataciteEngine"]
   shared_resource_model: StashEngine::Resource
 
 development: &DEVELOPMENT

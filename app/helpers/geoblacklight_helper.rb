@@ -9,12 +9,12 @@ module GeoblacklightHelper
   end
 
   def document_available?
-    # @document.public? || (@document.same_institution? && user_signed_in?)
+    #@document.public? || (@document.same_institution? && user_signed_in?)
     true
   end
 
   def document_downloadable?
-    # document_available? && @document.downloadable?
+    #document_available? && @document.downloadable?
     true
   end
 
@@ -35,9 +35,7 @@ module GeoblacklightHelper
   end
 
   def geoblacklight_icon(name)
-    unless name.nil?
-      content_tag :span, '', class: "geoblacklight-icon geoblacklight-#{name.downcase.gsub(' ', '-')}", title: name
-    end
+    content_tag :span, '', class: "geoblacklight-icon geoblacklight-#{(name.blank? ? '' : name.downcase.gsub(' ', '-'))}", title: name
   end
 
   def render_search_form_no_navbar
